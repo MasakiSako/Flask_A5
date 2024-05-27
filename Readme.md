@@ -24,8 +24,13 @@ Flask_NonNankai
             |- Pipfile.lock <!-- 作成不要 -->
             |- server.py
             |- flask_blog
+                |- templates <!--HTMLを入れる(Viewファイル)-->
+                |   |-entries
+                |       |-index.html
+                |
                 |- __init__.py
                 |- views.py
+                |- config.py <!--configファイル（設定情報）-->
         |- calcsalary_app // 演習
         |- holiday_app // 演習
         |- hello.py
