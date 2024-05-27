@@ -14,15 +14,23 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav navbar-right">
+                {% if not session.logged_in %}
                 <li class="nav-item">
                     <a href="/login" class="nav-link">ログイン</a>
                 </li>
+                {% else %}
                 <li class="nav-item">
                     <a href="/logout" class="nav-link">ログアウト</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
     <div class="blog-body">
         {% block body %}{% endblock %}
     </div>
