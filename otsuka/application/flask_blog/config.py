@@ -1,7 +1,6 @@
-#configファイルの作成
-#デバックモードをONにする
+SQLALCHEMY_DATABASE_URI = 'sqlite:///flask_blog.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
 DEBUG = True
-
-#16.1 configに正しいユーザー名とパスワードを設定
-UserNAME = 'john'
+SECRET_KEY = 'secret key'
+USERNAME = 'john'
 PASSWORD = 'due123'
