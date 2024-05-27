@@ -17,9 +17,15 @@ pip install click==8.0.4\
 
 ## ディレクトリ構成
 ~~~
-Flask_teamA5
+Flask_NonNankai
     |- Flask_Okumura
-        |- application // create: flask_blog
+        |- application <!-- create: flask_blog -->
+            |- Pipfile <!-- 作成不要 -->
+            |- Pipfile.lock <!-- 作成不要 -->
+            |- server.py
+            |- flask_blog
+                |- __init__.py
+                |- views.py
         |- calcsalary_app // 演習
         |- holiday_app // 演習
         |- hello.py
