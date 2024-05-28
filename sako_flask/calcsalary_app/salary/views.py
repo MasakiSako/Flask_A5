@@ -3,13 +3,20 @@ from salary import app
 import math
 @app.route('/')
 def home():
-    return render_template('input.html')
+    init_val = session.get("input_data", None)
+    return render_template('input.html',defdata = init_val)
 @app.route('/output',methods=['GET','POST'])
 def calc():
     if request.method == 'POST':
         # 入力フォームが空か
         if request.form['salary'] == "":
-            flash("給料を入力してください")
+            flash("給料が未入力です。入力してください")
+        elif int(request.form['salary']) >=1e10:
+            flash("給料には最大9,999,999,999まで入力可能です。")
+            session["input_data"] = request.form['salary']
+        elif int(request.form['salary']) <0:
+            flash("給料にはマイナスの値は入力できません。")
+            session["input_data"] = request.form['salary']
         else:
             flash('計算しました')
             sal = int(request.form['salary'])
