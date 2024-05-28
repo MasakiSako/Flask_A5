@@ -4,20 +4,27 @@ from flask_blog import app
 # Readme: / にリクエストがあった時の処理
 @app.route("/")
 def show_entries():
+    if not session.get('logged_in'):
+        return redirect('/login')    
     return render_template('entries/index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
-            print('ユーザ名が異なります')
+            flash('ユーザ名が異なります')
         elif request.form['password'] != app.config['PASSWORD']:
-            print('パスワードが異なります')
+            flash('パスワードが異なります')
         else:
+            session['logged_in'] = True
+            flash("ログインしました？")
             return redirect('/')
     return render_template('login.html')
 
 
 @app.route('/logout')
 def logout():
+    # Readme: ログアウトでセッション情報を削除
+    session.pop('logged_in', None)
+    flash('ログアウトした？')
     return redirect('/')
