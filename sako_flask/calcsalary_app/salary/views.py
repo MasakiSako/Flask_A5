@@ -7,6 +7,7 @@ def home():
 @app.route('/output',methods=['GET','POST'])
 def calc():
     if request.method == 'POST':
+        # 入力フォームが空か
         if request.form['salary'] == "":
             flash("給料を入力してください")
         else:
@@ -20,8 +21,6 @@ def calc():
                 input_salary[2] = math.floor(0.1*sal)
                 input_salary[1] = sal - input_salary[2]
             return render_template("output.html",salary=input_salary)
-    return redirect('/input')
+    return redirect('/')
 
-@app.route('/input')
-def input():
-    return render_template("input.html")
+
