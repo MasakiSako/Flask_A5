@@ -1,0 +1,10 @@
+{% extends "layout.html" %} {% block body %}
+
+<p>
+    給与：{{'{:,.0f}'.format(input_salary) }}円の場合、支給額：{{'{:,.0f}'.format(input_sikyu) }}円、税額：{{'{:,.0f}'.format(input_tax) }}円です。
+    
+</p>
+<form action="{{ url_for('input') }}" method=post>
+    <button type="submit" class="btn btn-primary">戻る</button>
+</form>
+    {% endblock %}
