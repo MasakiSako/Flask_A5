@@ -7,7 +7,7 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/" class="navbar-brand">Flask Blog</a>
+        <a href="{{ url_for('show_entries') }}" class="navbar-brand">Flask Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls='navbarNav' aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,11 +16,11 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if not session.logged_in %}
                 <li class="nav-item">
-                    <a href="/login" class="nav-link">ログイン</a>
+                    <a href="{{ url_for('login') }}" class="nav-link">ログイン</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a href="/logout" class="nav-link">ログアウト</a>
+                    <a href="{{ url_for('logout') }}" class="nav-link">ログアウト</a>
                 </li>
                 {% endif %}
             </ul>
