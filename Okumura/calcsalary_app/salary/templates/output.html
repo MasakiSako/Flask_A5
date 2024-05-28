@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<form action="{{ url_for('input') }}">
+    <p>{{ result }}</p>
+</form>
+<button class="btn btn-outline-danger" type="button" onclick="history.back()" >戻る</button>
+
+{% endblock %}
