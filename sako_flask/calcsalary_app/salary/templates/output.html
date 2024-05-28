@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+<p>給与 : {{ '{:,.0f}'.format(salary[0])}}円の場合、 支給額 : {{ '{:,.0f}'.format(salary[1])}}円、 税額 : {{ '{:,.0f}'.format(salary[2])}}円 です。</p>
+<form action="{{ url_for('calc') }}">
+<button type="submit" class="btn btn-primary" >戻る</button></form>
+{% endblock %}
