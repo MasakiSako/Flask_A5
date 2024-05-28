@@ -27,12 +27,14 @@ def output():
     salary = request.form['salary']
     
     # 途中：インプット前に実装しないといけない
-    if salary == "":
-        flash("給与が未入力です。入力してください。")
-    elif len(salary) > 10:
-        flash("給与には最大9,999,999,999まで入力可能です。")
-    elif salary < 0:
-        flash("給与にはマイナスの値は入力できません。")
-    else:
-        result = calc_salary(int(salary))
-        return render_template('output.html', result=result)
+    # if salary == "":
+    #     flash("給与が未入力です。入力してください。")
+    # elif len(salary) > 10:
+    #     flash("給与には最大9,999,999,999まで入力可能です。")
+    # elif salary < 0:
+    #     flash("給与にはマイナスの値は入力できません。")
+    # else:
+        # result = calc_salary(int(salary))
+        # return render_template('output.html', result=result)
+    result = calc_salary(int(salary))
+    return render_template('output.html', result=result)
