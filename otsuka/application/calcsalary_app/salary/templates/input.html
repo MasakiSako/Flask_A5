@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{url_for('login')}}" method=post>
+
+    <div class="form-group">
+        <label for="KYUUYO">給与</label>
+        <input type="number" class="form-control" id="InputPassword" name=salary>
+    </div>
+
+    <button type="submit" class="btn btn-primary">計算する</button>
+</form>
+{% endblock %}
