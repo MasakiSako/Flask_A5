@@ -3,7 +3,7 @@
 <form action="{{ url_for('calc') }}" method=post>
     <div class="form-group">
         <label for="InputTitle">給与</label>
-        <input type="number" class="form-control" name=salary id="InputTitle">
+        <input type="number" class="form-control" name=salary id="InputTitle" value={{defdata}}>
     </div>
     <button type="submit" class="btn btn-primary">計算する</button>
 </form>
