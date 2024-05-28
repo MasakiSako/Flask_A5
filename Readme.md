@@ -31,6 +31,17 @@ Flask_NonNankai
                 |- __init__.py
                 |- views.py
                 |- config.py <!--configファイル（設定情報）-->
-        |- calcsalary_app // 演習
+        |- calcsalary_app <!-- 演習(Day2) -->
+            |- salary
+            |   |- templates
+            |   |   |-input.html
+            |   |   |-layout.html
+            |   |   |-output.html
+            |   |- views
+            |   |   |-__init__.py
+            |   |   |-views.py
+            |   |- __init__.py
+            |   |- config.py
+            |- server.py
         |- holiday_app // 演習
         |- hello.py
