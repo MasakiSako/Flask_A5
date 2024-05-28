@@ -4,4 +4,5 @@ app = Flask(__name__)
 app.config.from_object('salary.config')
 
 
-import salary.views
+# import salary.views
+from salary.views import views

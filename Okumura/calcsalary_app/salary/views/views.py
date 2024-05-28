@@ -4,7 +4,7 @@ from salary import app
 # Readme: / にリクエストがあった時の処理
 @app.route('/')
 def lp():
-    return redirect(url_for('input'))
+    return render_template('input.html')
 
 @app.route('/input')
 def input():
