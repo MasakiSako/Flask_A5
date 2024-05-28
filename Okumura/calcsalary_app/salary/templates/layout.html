@@ -11,13 +11,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div>
-            <p>給与計算アプリ</p>
-        </div>
-        <div>
-            <p>給与</p>
-            <input type="text">
-            <a class="nav-link" href="{{ url_for('output') }}">計算</a>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <h2>給与計算アプリ</h2>
+        </nav>
+        </nav>
+        <div class="blog-body pl-3">
+            {% block body %}{% endblock %}
         </div>
     </body>
 </html>

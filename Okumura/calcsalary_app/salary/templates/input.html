@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
-
 <div>
-    <p>hello,world</p>
+    <form action="{{ url_for('output') }}" method=post>
+        <p>給与</p>
+        <input class="mb-2" type="number" name = salary></input>
+        <button class="btn btn-info d-block" type="submit" >計算する</button>
+    </form>
 </div>
-
 {% endblock %}
