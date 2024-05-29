@@ -24,9 +24,15 @@ def add_entry():
         text = request.form['text']
     )
     db.session.add(entry)
-    db.session.commit()
-    flash('新しく記事が作成されました')
-    return redirect(url_for('show_entries'))
+    # Update_except-same-title
+    try:
+        db.session.commit()
+        flash('新しく記事が作成されました')
+        return redirect(url_for('show_entries'))
+    except:
+        flash('タイトル名がすでに存在しています')
+        return redirect(url_for('new_entry'))
+
 
 @app.route('/entries/new', methods=["GET"])
 def new_entry():
