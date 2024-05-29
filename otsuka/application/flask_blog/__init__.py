@@ -6,4 +6,6 @@ app.config.from_object('flask_blog.config')
 
 db = SQLAlchemy(app)
 
-import flask_blog.views
+#import otsuka.application.flask_blog.views.views
+
+from flask_blog.views import views, entries

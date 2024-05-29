@@ -21,16 +21,21 @@ def login():
         
         if kyuuyogaku > 9999999999:
             flash('給与には最大9,999,999,999まで入力可能です。')
+            return render_template('input.html')
         
         elif kyuuyogaku < 0:
             flash('給与にはマイナスの値は入力できません。')
+            return render_template('input.html')
 
         elif kyuuyogaku > 1000000:
             zeigaku = int((kyuuyogaku-1000000) * 0.2 + 100000)
             sikyuugaku = kyuuyogaku - zeigaku
-        elif:
+            return render_template('input.html')
+        
+        elif kyuuyogaku >0 or kyuuyogaku < 10000000 :
             zeigaku = int(kyuuyogaku*0.1)
             sikyuugaku = kyuuyogaku - zeigaku
+            return render_template('input.html')
         
         else :
             flash('給与が未入力です。入力してください。')
