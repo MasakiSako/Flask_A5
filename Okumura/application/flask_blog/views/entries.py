@@ -47,3 +47,32 @@ def show_entry(id):
         return redirect(url_for('login'))
     entry = Entry.query.get(id)
     return render_template('entries/show.html', entry=entry)
+
+# Update: 編集ボタンを押したときの挙動
+@app.route('/entries/<int:id>/edit', methods=['GET'])
+def edit_entry(id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    entry = Entry.query.get(id)
+    return render_template('entries/edit.html', entry=entry)
+
+# Update: 編集を保存ボタンを押したときの挙動
+@app.route('/entries/<int:id>/update', methods=['POST'])
+def update_entry(id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    entry = Entry.query.get(id)
+    entry.title = request.form['title']
+    entry.text = request.form['text']
+
+    # Update_except-same-title
+    try:
+        db.session.merge(entry)
+        db.session.commit()
+        flash("記事が更新されました")
+        return redirect(url_for('show_entries'))
+    except:
+        flash('タイトル名がすでに存在しています')
+        return redirect(url_for('show_entries'))
+        # Todo: できれば、edit_entryにリダイレクトしたい(編集データを引き渡せていないためエラー)
+        # return redirect(url_for('edit_entry',entry=entry))
