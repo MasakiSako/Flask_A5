@@ -1,3 +1,4 @@
+from zoneinfo import ZoneInfo
 from flask_blog import db
 from datetime import datetime
 
@@ -13,7 +14,9 @@ class Entry(db.Model):
     def __init__(self, title=None, text=None):
         self.title = title
         self.text = text
-        self.created_at = datetime.utcnow()
+        # Add: Datetime-in-JPN
+        self.created_at = datetime.now(ZoneInfo("Asia/Tokyo"))
+        
 
     # Do: Export-Format(Read-Model)
     def __repr__(self):
