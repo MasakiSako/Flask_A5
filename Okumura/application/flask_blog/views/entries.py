@@ -13,6 +13,7 @@ def show_entries():
     entries = Entry.query.order_by(Entry.id.desc()).all()
     return render_template('entries/index.html', entries=entries)
 
+# Create:new-blog
 @app.route('/entries', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):
@@ -32,3 +33,11 @@ def new_entry():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     return render_template('entries/new.html')
+
+# Read:Created-Blog
+@app.route('/entries/<int:id>', methods=['GET'])
+def show_entry(id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    entry = Entry.query.get(id)
+    return render_template('entries/show.html', entry=entry)

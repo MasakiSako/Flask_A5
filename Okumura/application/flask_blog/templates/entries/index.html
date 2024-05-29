@@ -4,13 +4,22 @@
 <body>
     {% extends "layout.html" %}
     {% block body %}
-    <ulclass='list-group list-group-flush'>
-
-    </ulclass=>
-
-    投稿がありません
     <div>
-        <img id="randomImage" src="https://i.makeagif.com/media/3-25-2024/fge8Wn.gif" alt="画像">
+        <img id="" src="https://i.makeagif.com/media/3-25-2024/fge8Wn.gif" alt="画像">
+        <img id="" src="https://storage.googleapis.com/content-ankey/user_upload/resize/m3udLJ1SsWTByWN1YkadlGzCG5t1_cnpq4p29io6g02v3gk6g_300x300" alt="画像">
     </div>
+    <ul class="list-group list-group-flush">
+        
+    {% for entry in entries %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ entry.title }}</h5>
+                <a href="{{url_for('show_entry', id=entry.id)}}" class="card-link">続きを読む</a>
+            </div>
+        </div>
+    {% else %}
+        投稿がありません
+    {% endfor %}
+    </ul>
     {% endblock %}
 </body>
