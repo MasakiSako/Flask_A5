@@ -23,7 +23,7 @@ def calc():
             flash("給料には最大9,999,999,999まで入力可能です。")
             session["input_data"] = sal
         elif sal <0:
-            flash("給料にはマイナスの値は入力できません。")
+            flash("給料にはマイナスの値は入力できません!")
             session["input_data"] = sal
         else:
             flash('計算しました')
