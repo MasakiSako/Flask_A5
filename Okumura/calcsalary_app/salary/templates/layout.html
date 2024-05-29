@@ -14,7 +14,13 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <h2>給与計算アプリ</h2>
         </nav>
-        </nav>
+
+        {% for message in get_flashed_messages() %}
+        <div class='alert alert-info' role='alert'>
+            {{ message }}
+        </div>
+        {% endfor %}
+
         <div class="blog-body pl-3">
             {% block body %}{% endblock %}
         </div>
