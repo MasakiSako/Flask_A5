@@ -24,35 +24,11 @@ def output():
     return render_template('login.html')
 
 
-# @app.route('/logout')
-# def logout():
-#     session.pop('logged_in', None)
-#     flash('ログアウトしました')
-#     return redirect(url_for('show_entries'))
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('ログアウトしました')
+    return redirect(url_for('show_entries'))
 
 
 
-
-import sys
-arg = sys.argv
-
-from decimal import Decimal, ROUND_HALF_UP
-
-salary = int(arg[1])
-
-tax = (salary - 1000000)*0.2 + 100000
-
-
-
-if salary >= 1000000:
-    tax = (salary - 1000000)*0.2 + 100000
-    tax = Decimal(str(tax)).quantize(Decimal("0"), rounding= ROUND_HALF_UP)
-    sikyu = salary - tax
-    print(f"支給額:{sikyu}、", end="")
-    print(f"税額:{tax}", end="")
-else:
-    tax = salary * 0.1
-    tax = Decimal(str(tax)).quantize(Decimal("0"), rounding= ROUND_HALF_UP)
-    sikyu = salary - tax
-    print(f"支給額:{sikyu}、", end="")
-    print(f"税額:{tax}", end="")
