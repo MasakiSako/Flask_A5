@@ -7,11 +7,11 @@ from .module import calc_salary
 def main():
     init_val = session.get('input_data', None)
     session.pop('input_data', None)
-    return render_template('input.html')
+    return render_template('input.html', defdata = init_val)
 
 @app.route('/input')
 def input():
-    return render_template('input.html', defdata = init_val)
+    return render_template('input.html')
 
 @app.route('/output', methods=['GET', 'POST'])
 def output():
