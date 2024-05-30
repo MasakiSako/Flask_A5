@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>給与計算アプリ</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <h2>給与計算アプリ</h2>
+        </nav>
+
+        {% for message in get_flashed_messages() %}
+        <div class='alert alert-info' role='alert'>
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        <div class="blog-body pl-3">
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>
