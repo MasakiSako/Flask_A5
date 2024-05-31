@@ -48,7 +48,7 @@ def show_entry(id):
     entry = Entry.query.get(id)
     return render_template('entries/show.html', entry=entry)
 
-# Update: 編集ボタンを押したときの挙動
+# Update:編集ボタンを押したときの挙動
 @app.route('/entries/<int:id>/edit', methods=['GET'])
 def edit_entry(id):
     if not session.get('logged_in'):
@@ -56,7 +56,7 @@ def edit_entry(id):
     entry = Entry.query.get(id)
     return render_template('entries/edit.html', entry=entry)
 
-# Update: 編集を保存ボタンを押したときの挙動
+# Update:編集を保存ボタンを押したときの挙動
 @app.route('/entries/<int:id>/update', methods=['POST'])
 def update_entry(id):
     if not session.get('logged_in'):
@@ -65,7 +65,7 @@ def update_entry(id):
     entry.title = request.form['title']
     entry.text = request.form['text']
 
-    # Update_except-same-title
+    # Update:except-same-title
     try:
         db.session.merge(entry)
         db.session.commit()
@@ -76,3 +76,16 @@ def update_entry(id):
         return redirect(url_for('show_entries'))
         # Todo: できれば、edit_entryにリダイレクトしたい(編集データを引き渡せていないためエラー)
         # return redirect(url_for('edit_entry',entry=entry))
+
+# Delete:削除ボタンを押したときの挙動
+@app.route('/entries/<int:id>/delete', methods=['POST'])
+def delete_entry(id):
+    # Do:ログインしているか
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    
+    entry = Entry.query.get(id)
+    db.session.delete(entry)
+    db.session.commit()
+    flash("投稿が削除されました")
+    return redirect(url_for('show_entries'))
