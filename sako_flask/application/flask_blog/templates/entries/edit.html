@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{ url_for('update_entry',id=entry.id) }}" method=post class=add-entry>
+    <div class="form-group">
+        <label for="InputTitle">タイトル</label>
+        <input type="text" name="title" id="InputTitle" class="form-control" value="{{ entry.title }}">
+    </div>
+    <div class="form-group">
+        <label for="InputText">本文</label>
+        <textarea name=text rows="3" id="InputText" class="form-control">{{ entry.text|safe }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">更新</button>
+</form>
+{% endblock %}
