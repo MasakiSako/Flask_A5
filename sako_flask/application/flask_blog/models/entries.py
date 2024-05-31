@@ -8,10 +8,11 @@ class Entry(db.Model):
     text = db.Column(db.Text)
     created_at = db.Column(db.DateTime)
 
-def __init__(self, title=None, text=None):
-    self.title = title
-    self.text = text
-    self.created_at = datetime.now(ZoneInfo("Asia/Tokyo"))
+    def __init__(self, title=None, text=None):
+        self.title = title
+        self.text = text
+        self.created_at = datetime.now(ZoneInfo("Asia/Tokyo"))
+       
     
-def __repr__(self):
-    return '<Entry id:{} title:{} text:{}>'.format(self.id, self.title, self.text)
+    def __repr__(self):
+        return '<Entry id:{} title:{} text:{}>'.format(self.id, self.title, self.text)
