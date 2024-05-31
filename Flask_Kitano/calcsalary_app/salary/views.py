@@ -4,7 +4,7 @@ from decimal import Decimal, ROUND_HALF_UP
 
 @app.route('/', methods=['GET', 'POST'])
 def input():
-   
+    input_salary = session.get("input_data", None)
     return render_template("input.html")
 
 @app.route('/output', methods=['GET', 'POST'])
