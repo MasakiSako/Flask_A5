@@ -5,6 +5,10 @@ from holiday.models.mst_holiday import Entry
 @app.route('/maintenance_date', methods=['POST'])
 def add_entry():
     dupcheck = Entry.query.filter_by(holi_date= request.form['holiday']).first()
+    if request.form['holiday_text']=="":
+        rsltmsg = "テキストが空白です"
+        flash(rsltmsg)
+        return redirect(url_for('home'))
     if request.form["button"] == 'insert_update':
         entry = Entry(
             holi_date = request.form['holiday'],
