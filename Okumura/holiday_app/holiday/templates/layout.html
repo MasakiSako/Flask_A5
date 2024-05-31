@@ -7,21 +7,13 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" class=""></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('show_entries') }}">Flask Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="nav navbar-nav navbar-right">
-                <h1>祝日マスタ管理</h1>
-            </ul>
-        </div>
+        <a class="text-3xl font-bold underline" href="{{ url_for('show_home') }}">祝日マスタ管理</a>
     </nav>
+    <img src="https://i.pinimg.com/originals/4e/e8/07/4ee807eb03d4dd3cd511f2a2a31238c4.gif" />
 
     {% for message in get_flashed_messages() %}
     <div class="alert alert-info" role="alert">

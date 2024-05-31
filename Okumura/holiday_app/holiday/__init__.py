@@ -7,4 +7,4 @@ app.config.from_object('holiday.config')
 # Setting DB
 db = SQLAlchemy(app)
 
-from holiday.views import views
+from holiday.views import views, enties

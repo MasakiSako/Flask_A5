@@ -3,4 +3,4 @@ from holiday import app
 
 @app.route('/')
 def show_home():
-    return render_template('index.html')
+    return render_template('entries/input.html')

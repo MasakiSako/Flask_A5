@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{ url_for('show_home') }}">
+    <p>処理結果</p>
+    {{ message }}
+    <button type="submit" class="btn btn-primary">戻る</button>
+</form>
+{% endblock %}
