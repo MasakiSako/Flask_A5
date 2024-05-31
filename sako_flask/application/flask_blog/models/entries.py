@@ -11,7 +11,6 @@ class Entry(db.Model):
 def __init__(self, title=None, text=None):
     self.title = title
     self.text = text
-    # self.created_at = datetime.now(ZoneInfo("Asia/Tokyo"))
     self.created_at = datetime.now(ZoneInfo("Asia/Tokyo"))
     
 def __repr__(self):
