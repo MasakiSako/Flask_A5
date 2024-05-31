@@ -5,7 +5,7 @@ from flask_blog import app
 
 
 @app.route('/login', methods=['GET', 'POST'])
-def output():
+def login():
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
             flash('ユーザ名が異なります')
