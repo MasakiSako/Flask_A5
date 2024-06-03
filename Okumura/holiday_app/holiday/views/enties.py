@@ -29,4 +29,4 @@ def new_entry():
             return render_template('entries/maintenance_date.html', entry=entry)
     except:
         flash('情報を正しく入力してください')
-        return redirect('/')
+        return redirect(url_for('show_home'))
