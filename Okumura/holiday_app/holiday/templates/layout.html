@@ -1,26 +1,29 @@
 <!doctype html>
-<title>祝日マスタ管理</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" type="text/css">
-<link rel=stylesheet href="{{ url_for('static', filename='style.css') }}">
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" class=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="text-3xl font-bold underline" href="{{ url_for('show_home') }}">祝日マスタ管理</a>
-    </nav>
-    <img src="https://i.pinimg.com/originals/4e/e8/07/4ee807eb03d4dd3cd511f2a2a31238c4.gif" />
-
-    {% for message in get_flashed_messages() %}
-    <div class="alert alert-info" role="alert">
-        {{ message }}
+<head>    
+    <title>祝日マスタ管理</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" type="text/css">
+    <link rel=stylesheet href="{{ url_for('static', filename='layout.css') }}">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" class=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="text-3xl font-bold underline" href="{{ url_for('show_home') }}">祝日マスタ管理</a>
+        </nav>
+        <img src="https://i.pinimg.com/originals/4e/e8/07/4ee807eb03d4dd3cd511f2a2a31238c4.gif" style="width: 200px; height: 200px;"/>
+        
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-info" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <div class="blog-body">
+            {% block body %}{% endblock %}
+        </div>
     </div>
-    {% endfor %}
-    <div class="blog-body">
-        {% block body %}{% endblock %}
-    </div>
-</div>
+</body>
