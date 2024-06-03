@@ -12,5 +12,6 @@
     データがありません!!
 {% endfor %}
 </ul>
-
+<form action="{{ url_for('home') }}">
+    <button type="submit" class="btn btn-primary" >戻る</button></form>
 {% endblock %}
