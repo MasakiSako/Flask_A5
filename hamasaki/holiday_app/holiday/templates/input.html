@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        
+
+        <div class="blog-body">
+            <form action="{{url_for('add_or_update_or_delete_entry')}}" method="post" class="add-entry">
+                <div class="form-group">
+                    <label for="InputTitle">祝日 日付</label>
+                    <input type="date" name="holi_date" id="Inputholiday" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="InputText">祝日 テキスト</label>
+                    <input type="text" name="holi_text" id="InputText" class="form-control">
+                    <button type="submit" class="btn btn-primary" name="button" value="insert_update" style="display: inline-block;">新規登録・更新</button>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger" name="button" value="delete" style="display: inline-block;">削除</button>
+                </div>
+            </form>
+
+            <form action="{{url_for('list_entries')}}" method="get" class="list">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark" name="button" value="list">一覧出力</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    {% endblock %}

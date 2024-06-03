@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <br><br>
+        
+        <div class="btn-group">
+            <form action ="{{ url_for('show_entries') }}" method="GET">
+                <button type="submit" class="btn btn-secondary">戻る</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
