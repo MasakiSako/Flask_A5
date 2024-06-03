@@ -3,7 +3,7 @@ from attendance import app ,db
 from functools import wraps
 from attendance.models.entries import Entry , NameList
 import datetime
-
+from sqlalchemy import and_
 
 def login_required(view):
     @wraps(view)
@@ -35,13 +35,19 @@ def login():
                 flash('ログインしました')
                 return redirect('/master')
             else:
-                oentry = Entry(
-                name = request.form['username'],
-                date = datetime.datetime.today()
-                )
-                db.session.add(oentry)
-                db.session.commit()
-                return redirect('/result')
+                dated = datetime.datetime.today()
+                dupcheck2 = db.session.query(Entry).filter(and_(Entry.name == request.form['username'],Entry.date==dated)).all()
+                if dupcheck2 is None:
+                    oentry = Entry(
+                    name = request.form['username'],
+                    date = dated
+                    )
+                    db.session.add(oentry)
+                    db.session.commit()
+                    return redirect('/result')
+                else: 
+                    flash('既に出席済みです')
+                    return redirect('/login')
     return render_template('login.html')
 
 @app.route('/result')

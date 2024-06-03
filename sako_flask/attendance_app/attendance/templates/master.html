@@ -29,6 +29,10 @@
         </button>
     </div>
 </form>
+<br>
+<form action="{{ url_for('showofficers') }}">
+    <button type="submit" class="btn btn-primary" >社員一覧</button></form>
+<br>
 <form action="{{ url_for('logout') }}">
     <button type="submit" class="btn btn-primary" >ログアウト</button></form>
 {% endblock %}
