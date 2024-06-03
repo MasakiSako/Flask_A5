@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul class="list-group list-group-flush">
+    <p>{{ datem }}</p>
+    <p>{{ amount}}件</p>
+{% for entry in entries %} 
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">{{ entry.name }}</p>
+        </div>
+    </div>
+{% else %}
+    データがありません!!
+{% endfor %}
+</ul>
+<form action="{{ url_for('master_view') }}">
+    <button type="submit" class="btn btn-primary" >戻る</button></form>
+{% endblock %}

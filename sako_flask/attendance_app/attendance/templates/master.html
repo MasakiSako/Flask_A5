@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Master管理</h2>
+<form action="{{ url_for('show_a10z') }}" method=post class=add-entry>
+    <div class="form-group">
+        <label for="InputDate">日付</label>
+        <input type="date" name="inputdate" id="InputDate" value="2024-06-03" class="form-control">
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-primary" name="button">名簿出力
+        </button>
+    </div>
+</form>
+<form action="{{ url_for('custom_namels') }}" method=post class=add-entry>
+    <div class="form-group">
+        <label for="InputText" value="">Officer Name</label>
+        <input type="text" name="offname" id="InputText" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="InputText" value="">Officer Pass</label>
+        <input type="text" name="offpass" id="InputText" class="form-control">
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-primary" name="button" value="insert">登録
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-primary" name="button" value="delete">削除
+        </button>
+    </div>
+</form>
+<form action="{{ url_for('logout') }}">
+    <button type="submit" class="btn btn-primary" >ログアウト</button></form>
+{% endblock %}
